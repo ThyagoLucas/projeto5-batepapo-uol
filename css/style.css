@@ -1,0 +1,57 @@
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #F3F3F3;
+    
+}
+
+.topo{
+    background-color: pink;
+    width: 100%;
+    display: block;
+    justify-content: space-between;
+    align-items: center ;
+    margin: 15px;
+
+}
+
+.topo img{
+    height: 53px;   
+
+}
+
+main{
+    scrollIntoVie
+}
+.footer{
+    
+    background-color: blue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: 30px;
+    margin-right: 30px;
+    
+
+}
+
+.icon{
+    width: 26px;
+    height: 26px;
+}
+
+.enviar-menssagem{
+    text-decoration: none;
+   
+    outline: none;
+
+    border: none;
+    width: 50%;
+    height: 30px;
+
+}
+
+
