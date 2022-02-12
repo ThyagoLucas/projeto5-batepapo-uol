@@ -2,56 +2,175 @@ body{
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: #F3F3F3;
+    background-color: #FFFFFF;
     
+}
+.tela-login.disabled{
+    display: none;
+}
+.tela-login{
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 65px;
+    background-color: #FFFFFF;
+}
+
+.tela-login input{
+    display: flex;
+    text-align: center;
+    font-size: 18px;
+    width: 250px;
+    height: 35px;
+    padding: 10px 0px;
+    border-radius: 4px;
+    border: 1px solid #D7D7D7;
+    margin-top: 95px ;
+    outline: none;
+
+}
+.tela-login button{
+    background-color: rgba(221, 221, 221, 0.726);
+    border: none;
+    padding: 5px;
+    color: #696969;
+    font-size: 17px;
+    border-radius: 3px;
+    margin-top: 25px;
+    width: 100px;
+    height: 35px;
+}
+.sidbar.disabled{
+    display: none;
+}
+
+.sidbar{
+    z-index: 999;
+    
+    display: flex;
+    justify-content: space-around;
+    position:fixed;
+    width: 100%;
+    height: 100%;
+}
+.sid-outside{
+    background-color: rgba(61, 61, 61, 0.8);
+    
+    width: 30%;
+    height: 100%;
+    display: flex;
+   
+}
+
+.sid-options{
+    display: flex;
+    width: 70%;
+    height: 100%;
+    background-color: white;
 }
 
 .topo{
-    background-color: pink;
+    background-color: #FFFFFF;
     width: 100%;
-    display: block;
+    display: flex;
+    position: fixed;
     justify-content: space-between;
     align-items: center ;
-    margin: 15px;
-
+    padding: 15px 0px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+    
 }
 
 .topo img{
-    height: 53px;   
+    height: 53px;
+    padding-left: 30px;
+}
+.topo ion-icon{
+
 
 }
 
 main{
-    scrollIntoVie
+    margin-top: 90px;
+    margin-bottom: 90px;
+    width: 100%;
+    height: 100%;
+    background-color: #F3F3F3; 
+    overflow-x: hidden;
 }
-.footer{
+main p {
+    margin: 6px 0px;
+    display: flex;
+    width: 100%;
     
-    background-color: blue;
+    
+}
+p span{
+    padding: 0px 4px;
+}
+.hora{
+    color: #696969;
+}
+.nome{
+    font-weight: bold;
+}
+
+.status{
+    background-color: #DCDCDC;
+}
+
+.reservadamente{
+    background-color: #FFDEDE;
+}
+
+.comum{
+    background-color: #FFFFFF;
+}
+
+
+.msg{
+    width: 100%;
+    height: 60px;
+    
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 15px;
+
+}
+
+.footer{
+    background-color: #FFFFFF;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    position: fixed;
     width: 100%;
-    margin-left: 30px;
-    margin-right: 30px;
-    
-
+    height: 80px;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+    bottom: 0;
 }
 
 .icon{
     width: 26px;
     height: 26px;
+   
+    padding-right: 30px;
 }
+
 
 .enviar-menssagem{
     text-decoration: none;
-   
     outline: none;
-
     border: none;
-    width: 50%;
+    width: 85%;
     height: 30px;
-
+    padding-left: 30px;
 }
 
 

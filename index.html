@@ -10,15 +10,37 @@
     
 </head>
 <body>
+
+    <div class="tela-login">
+        <img src="img/7.png">
+        <input class="user" type="text" placeholder="Digite seu nome">
+        <button onclick="loginAuthentication()">Entrar</button>
+    </div>
+
+    <div class="sidbar disabled">
+        
+        <div class="sid-outside" onclick="onOffSidbar()">
+        </div>
+
+        <div class="sid-options">   
+        </div>
+
+    </div>
+    
+
+    
+    
     <header class="topo">
         <img src="img/7.png">
-        <ion-icon class="icon" name="people"></ion-icon>
+        <ion-icon class="icon" name="people" onclick="onOffSidbar()"></ion-icon>
 
     </header>
 
-    <main>
-
-        <button class="require-menssage" onclick="requere()"> Clique aqui :)</button>
+    <main class="messages">
+        <p class="msg comum"><span class="hora">(09:21:45)</span> <span class="nome"> João </span> entra na sala...</p>
+        <p class="msg status"><span class="hora">(09:21:45)</span> <span class="nome"> João </span> entra na sala...</p>
+        <p class="msg reservadamente"><span class="hora">(09:21:45)</span> <span class="nome"> João </span> entra na sala...</p>        
+               
     </main>
     
     <footer class="footer">
@@ -26,7 +48,8 @@
         <ion-icon class="icon" name="paper-plane-outline"></ion-icon>
     </footer>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
     <script src="script/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 </html>
