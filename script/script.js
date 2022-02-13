@@ -2,7 +2,9 @@
 
 let nameUser = null;
 let mainArray = [];
-let lastMessage = null;
+let lastObj= null;
+let lastIndex = 0;
+let ultimo = "a"+lastIndex;
 
 
 //-----Request section------//
@@ -19,17 +21,12 @@ function loginAuthentication(){
       nameUser = user;
 
     const promisse = axios.post("https://mock-api.driven.com.br/api/v4/uol/participants", user);
-    promisse.then(setTimeout(loginSucess, 2000));
+    promisse.then(loginSucess);
     promisse.catch(loginFail);
 
 }
 function loginSucess(response){
-
-    const messagens = axios.get("https://mock-api.driven.com.br/api/v4/uol/messages");
-    messagens.then(getMessage);
-    messagens.catch(failGetMessage);    
-    //so vai tirar a tela de login quando estiver com as mensagens;
-
+    getMessage();
     imOnline();
 }
 function loginFail(response){
@@ -41,88 +38,124 @@ function imOnline(){
     const promisse = axios.post("https://mock-api.driven.com.br/api/v4/uol/status", nameUser);
     
         setTimeout(imOnline, 5000);
+        
         console.log("ainda to aqui");   
 }
 
 
-//get message
+//get and post messages
 
-function getMessage(response){
+function getMessage(){
 
-    const entrou = document.querySelector(".tela-login");
-    entrou.classList.add("disabled");
+    const messagens = axios.get("https://mock-api.driven.com.br/api/v4/uol/messages");
+    messagens.then(refreshMsg);
+    messagens.catch(failGetMessage);
+    setTimeout(getMessage, 3000);
 
-    if(mainArray == 0) {
-        let findFirst = false;
-        let cont = 0 ;
-
-        while(findFirst == false){
-            let nome = response.data.from[cont];
-            if(nome == nameUser){
-                mainArray[0] = response.data[i];
-                findFirst == true;
-            }
-            cont++;
-        }
-    }
-
-
-    
-
-
-    console.log(mainArray.data);
-   
-    if(mainArray.length==1){
-        entrou.classList.add("disabled");
-    }
-
-   
-        
 }
-function receiveMessage(response){
-    
-    if(mainArray.length == 0){
-        mainArray[0] = response.data[99];
+
+function refreshMsg(chatMsgs){
+
+    //seta a primeira posição do array principal, logo ela tbm será a ultima;
+    if(mainArray.length == 0) {
+        let findFirst = false;
+        let i = 0 ;
+        while(findFirst == false){
+            
+            let usuario = chatMsgs.data[i];
+
+            if(nameUser.name == usuario.from){
+                
+                mainArray[lastIndex] = chatMsgs.data[i];
+                lastObj = chatMsgs.data[i];
+                findFirst == true;
+                ultimo = "a"+lastIndex;
+                lastIndex++;
+                writeMessages(ultimo, usuario);
+                const entrou = document.querySelector(".tela-login");
+                entrou.classList.add("disabled");
+            }
+
+            i++;
+        }
+
+    }else{
+        //Seta as ultimas msgs verificando o array que chegou, de tras para frente;
+        for(let i = 99; i>=0; i--){
+         
+            let usuario = chatMsgs.data[i];
+            
+            if((usuario.from == lastObj.from) && (usuario.time == lastObj.time)){
+                
+                for(let j = i  ; j <=98; j++){
+                    usuario = chatMsgs.data[j+1];
+
+                    mainArray[lastIndex] = usuario;
+                    ultimo = "a"+lastIndex;
+                    writeMessages(ultimo, usuario);
+                    lastObj = usuario; 
+                    lastIndex++;
+                   
+                }
+                break;
+            }
+        }     
     }
-    writeMessages();
-    
+
 }
 
 function failGetMessage(response){
     alert("Falha ao recarregar msgs, recarregue a pagagina");
 }
 
-function refresArray(response){
-
-    for(let o = 0; i<response.length; i++){
-
-
-
-    }
+function writeMessages(last, usuario){
 
 
 
 
+    const main = document.querySelector(".messages");
+   
+   
+   
+    main.innerHTML += `<p class="msg ${usuario.type} ${last}"><span class="hora">${usuario.time}</span>
+        <span class="nome">${usuario.from}</span> ${usuario.text}</p>
+    `
+    const scroll = document.querySelector("."+last);
+    scroll.scrollIntoView();
 
-    writeMessages();
+
 }
+
+function sendMsg(){
+    const message = document.querySelector(".send-msg").value;
+    const textMsg = {
+        from: nameUser.name,
+        to: "todos",
+        text: message,
+        type: "message"
+        
+    }
+    
+
+    const promisse = axios.post("https://mock-api.driven.com.br/api/v4/uol/messages", textMsg);
+    message.value = ''
+    getMessage();
+
+
+
+}
+
+
+//reload users sidbar
+
 
 
 
 
 function onOffSidbar(){
+
     const desativa = document.querySelector(".sidbar");
     desativa.classList.toggle("disabled");
-}
 
-function writeMessages(dadosmsg){
-    const main = document.querySelector(".messages");
-    main.innerHTML = '';
-   
-    main.innerHTML += `<p class="msg ${dadosmsg.type}"><span class="hora">${dadosmsg.time}</span>
-        <span class="nome">${dadosmsg.from}</span> ${dadosmsg.text}</p>
-    `
 
 }
-
-

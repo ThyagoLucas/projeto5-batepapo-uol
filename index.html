@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <title> Bate-Papo da Uol</title>
     
 </head>
 <body>
 
-    <div class="tela-login">
+    <div class="tela-login disabled">
         <img src="img/7.png">
         <input class="user" type="text" placeholder="Digite seu nome">
         <button onclick="loginAuthentication()">Entrar</button>
@@ -22,14 +25,40 @@
         <div class="sid-outside" onclick="onOffSidbar()">
         </div>
 
-        <div class="sid-options">   
+        <div class="sid-options">
+
+            <p>Escolha um contato para enviar mensagem:</p>
+
+            <section>
+                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
+                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
+                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
+                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
+                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
+                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
+                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
+                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
+                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
+                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
+                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
+                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
+                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
+                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
+                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
+                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
+ 
+            </section>
+
+            <p>Escolha a visibilidade:</p>
+            
+                
+         
+            
+            
         </div>
 
     </div>
-    
 
-    
-    
     <header class="topo">
         <img src="img/7.png">
         <ion-icon class="icon" name="people" onclick="onOffSidbar()"></ion-icon>
@@ -37,18 +66,18 @@
     </header>
 
     <main class="messages">
-        <p class="msg comum"><span class="hora">(09:21:45)</span> <span class="nome"> João </span> entra na sala...</p>
-        <p class="msg status"><span class="hora">(09:21:45)</span> <span class="nome"> João </span> entra na sala...</p>
-        <p class="msg reservadamente"><span class="hora">(09:21:45)</span> <span class="nome"> João </span> entra na sala...</p>        
-               
+        
+                      
     </main>
     
     <footer class="footer">
-        <input class="enviar-menssagem" type="text" placeholder="Escreva sua msg aqui">
-        <ion-icon class="icon" name="paper-plane-outline"></ion-icon>
+        <input class="send-msg" type="text" placeholder="Escreva sua msg aqui">
+        <ion-icon class="icon" name="paper-plane-outline" onclick="sendMsg()"></ion-icon>
     </footer>
+
+
+
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-    
     <script src="script/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>

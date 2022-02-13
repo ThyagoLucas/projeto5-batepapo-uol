@@ -1,8 +1,19 @@
+@keyframes refreshMsg {
+    0% { left: 100%; }
+
+    100% {left: 0%; }
+    
+    
+}
+
 body{
+    font-family: Roboto;
+    font-style: normal;
+
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    
     background-color: #FFFFFF;
+
     
 }
 .tela-login.disabled{
@@ -52,8 +63,9 @@ body{
     z-index: 999;
     
     display: flex;
-    justify-content: space-around;
+   
     position:fixed;
+    
     width: 100%;
     height: 100%;
 }
@@ -67,12 +79,57 @@ body{
 }
 
 .sid-options{
-    display: flex;
+    
+   
+   
+    
+
+    color: #000000;
+ 
     width: 70%;
     height: 100%;
     background-color: white;
 }
 
+.sid-options p{
+    
+    font-weight: bold;
+    font-size: 17px;
+    
+    display: flex;
+    text-align: center;
+    
+    height: 35px;
+  
+    padding: 15px 22px;
+    
+    
+   
+   
+
+}
+
+
+section{
+    
+   
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    overflow: scroll;  
+}
+section button{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    padding-left: 10px;
+    background-color: inherit;
+    outline: none;
+    border: none;
+
+}
 .topo{
     background-color: #FFFFFF;
     width: 100%;
@@ -135,12 +192,12 @@ p span{
 .msg{
     width: 100%;
     height: 60px;
-    
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     padding-left: 15px;
+    
 
 }
 
@@ -164,7 +221,7 @@ p span{
 }
 
 
-.enviar-menssagem{
+.send-msg{
     text-decoration: none;
     outline: none;
     border: none;
