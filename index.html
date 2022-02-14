@@ -29,43 +29,44 @@
 
             <p>Escolha um contato para enviar mensagem:</p>
             <h1 class="onlines">X pessoas onlines</h1>
-
             <div class="section">
-                <button  onclick="selectUser('todos')"> <ion-icon name="people"></ion-icon>  Todos</button>
-               
- 
+                <!--Usuarios inseridos do servidor-->
             </div>
 
             <p>Escolha a visibilidade:</p>
-            <button class="visibility" onclick="selectType('private_message')"><ion-icon name="lock-closed"></ion-icon></ion-icon>Reservadamente</button>
-            <button onclick="selectType('message')"><ion-icon name="lock-open"></ion-icon>Todos</button>
-            
-            
-        </div>
+            <div class="section"> 
+                <div class="option private_message " onclick="selectType('private_message')"> 
+                    <ion-icon name="lock-closed" role="img" class="md hydrated" aria-label="person"></ion-icon>Reservadamente
+                    <ion-icon class="icone" name="checkmark-sharp" role="img" aria-label="checkmark sharp"></ion-icon> 
+                </div>
 
+                <div class="option message check" onclick="selectType('message')"> 
+                    <ion-icon name="lock-open" role="img" class="md hydrated" aria-label="person"></ion-icon>Publico
+                    <ion-icon class="icone" name="checkmark-sharp" role="img" aria-label="checkmark sharp"></ion-icon> 
+                </div>
+
+            </div> 
+        </div>
     </div>
 
+    <!-- Corpo da page: topo, corpo e barra de enviar msgs-->
     <header class="topo">
         <img src="img/7.png">
         <ion-icon class="icon" name="people" onclick="onOffSidbar()"></ion-icon>
-
     </header>
 
-    <main class="messages">
-        
-        
-                      
+    <main class="messages">   
+        <!--Msgs inseridos do servidor-->                
     </main>
     
     <footer class="footer">
-        <input class="send-msg" type="text" placeholder="Escreva sua msg aqui">
+        <input  data-identifier="message" class="send-msg" type="text" placeholder="Escreva sua msg aqui">
         <ion-icon class="icon" name="paper-plane-outline" onclick="sendMsg()"></ion-icon>
     </footer>
 
 
-
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <script src="script/script.js"></script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 </html>

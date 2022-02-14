@@ -2,17 +2,17 @@
 
 let nameUser = null;
 let updates = 0;
-
 let lastObj= null;
-
 let msgType = 'message';  //default
 let userToSend = 'todos'; //default
+
 
 
 //-----Request section------//
 
 
 //login
+
 function loginAuthentication(){
 
     const inputName = document.querySelector(".user").value;
@@ -112,32 +112,35 @@ function refreshMsg(chatMsgs){
 }
 
 function failGetMessage(response){
-   // alert("Falha ao recarregar msgs, recarregue a pagagina");
+  // alert("Falha ao recarregar msgs, recarregue a página");
+  // window.location.reload()
 }
 
 function writeMessages(number, toPrint){
     const main = document.querySelector(".messages");
 
-
     if(toPrint.type == 'status'){
         main.innerHTML += `
-        <p class=" ${toPrint.type} a${number}"><span> (${toPrint.time})</span>
-        <strong> ${toPrint.from} </strong> ${toPrint.text}</p>  
+        <div data-identifier="message" class="msgR  ${toPrint.type} a${number}"><span> (${toPrint.time})</span>
+        <strong> ${toPrint.from} </strong> ${toPrint.text}</div>  
         `
         scroll();
 
     }if(toPrint.type == 'message'){
         main.innerHTML += `
-        <p class=" ${toPrint.type} a${number}"><span> (${toPrint.time})</span>
+        <div data-identifier="message" class="msgR ${toPrint.type} a${number}"><span> (${toPrint.time})</span>
         <strong> ${toPrint.from} </strong> para <strong>${toPrint.to}:
-        </strong> ${toPrint.text}</p>
+        </strong> ${toPrint.text}</div>
     `
         scroll();
 
-    }if((toPrint.type == 'private_message') && (toPrint.to == nameUser)){
-        main.innerHTML += `<p class=" ${toPrint.type} a${number}"><span class="hora">${toPrint.time}</span>
-        <span class="nome">${toPrint.from}</span> ${toPrint.text}</p>
-    `   
+    }if((toPrint.type == 'private_message') && ((toPrint.from == nameUser.name)||(toPrint.to == nameUser.name))){
+        main.innerHTML += `
+        <div data-identifier="message" class="msgR private a${number}"><span>(${toPrint.time})</span>
+        <strong> ${toPrint.from} </strong> para <strong>${toPrint.to}:
+        </strong> ${toPrint.text}</div>
+    
+    `  
         scroll();
 
     }
@@ -157,7 +160,7 @@ function sendMsg(){
         from: nameUser.name,
         to: userToSend,
         text: message,
-        type: msgType
+        type: msgType,
         
     }
     
@@ -168,7 +171,7 @@ function sendMsg(){
     const refreshFooter = document.querySelector(".footer");
     refreshFooter.innerHTML = `
     <input class="send-msg" type="text" placeholder="Escreva sua msg aqui">
-    <ion-icon class="icon" name="paper-plane-outline" onclick="sendMsg()"></ion-icon>
+    <ion-icon data-identifier="send-message" class="icon" name="paper-plane-outline" onclick="sendMsg()"></ion-icon>
     `
 
 
@@ -191,32 +194,63 @@ function refreshParticipants(response){
 
     const onlines = document.querySelector(".onlines");
     onlines.innerHTML =  `${response.data.length} pessoas onlines`
+
     const name = document.querySelector(".section");
     name.innerHTML = `
-    <button class="option" value="allPeoples"  
-    onclick="selectUser(this)">
+    <div class="option todos check" 
+    onclick="selectUser('todos')">
     <ion-icon name="people"></ion-icon>
-    Todos</button>
+    Todos
+    <ion-icon class="icone" name="checkmark-sharp"></ion-icon>
+    </div>
     `
 
     for(let i = 0; i< response.data.length; i++){
-
+        
         let user =  response.data[i];
         name.innerHTML +=`
-        <button class="option" onclick="selectUser('${user.name}')"> 
-        <ion-icon name="person"></ion-icon>${user.name}</button>
+        <div class="option ${user.name}" onclick="selectUser('${user.name}')"> 
+            <ion-icon name="person"></ion-icon>${user.name} 
+            <ion-icon class="icone" name="checkmark-sharp"></ion-icon> 
+        </div>
         `
+       
     }
     
 
 }
 
 function selectUser(userSelected){
+
+    const verifyCheck = document.querySelector(`.option.${userToSend}.check`);
+
+    if(verifyCheck != null){
+    verifyCheck.classList.remove("check");
+    }
+    
+    const toggleCheck = document.querySelector("."+userSelected);
+    toggleCheck.classList.add("check");
+
+
     userToSend = userSelected;
 
 
+
 }
-function selectType(userSelected){
+
+function selectType(typeSelected){
+    
+    const verifyCheck = document.querySelector(`.option.${msgType}.check`);
+
+    if(verifyCheck != null){
+    verifyCheck.classList.remove("check");
+    }
+    
+    const toggleCheck = document.querySelector("."+typeSelected);
+    toggleCheck.classList.add("check");
+
+
+    msgType = typeSelected;
 
 
 

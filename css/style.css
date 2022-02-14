@@ -105,8 +105,33 @@ body{
    
   
 }
-.onlines{
+.icone{
+    display: none;
+}
+/*meu xodó desse projetin, nunca havia usado*/
+.option.check ion-icon:nth-child(2){
+    display: flex;
+    padding-left: 10px;
+    color: green;
+}
+.option{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    padding-left: 10px;
+    margin-bottom: 10px;
 
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+
+
+
+.onlines{
     padding-left: 5px;
     color: rgb(230, 148, 41);
     font-weight: bold;
@@ -124,25 +149,7 @@ body{
     height: 250px;
   
 }
-.sid-options button{
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 19px;
-    padding-left: 10px;
-    margin-bottom: 3px;
 
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    
-    background-color:inherit;
-
-    outline: none;
-    border: none;
-
-}
 
 .section ion-icon{
     margin-right: 10px;
@@ -178,34 +185,6 @@ main{
     background-color: #F3F3F3; 
     overflow-x: hidden;
 }
-main p {
-    margin: 6px 0px;
-    display: flex;
-    width: 100%;    
-}
-
-.messages p {
-    display: flex;
-    
-    
-    align-items: center;
- 
-    height: 60px;
-
-    border-radius: 3px;
-    padding-left: 8px;
-}
-.messages span{
-    color: #adaaaa;
-    padding-right: 8px;
-
-}
-.messages strong{
-    padding: 0px 4px;
-}
-
-
-
 
 
 .status{
@@ -216,7 +195,7 @@ main p {
     
 }
 
-.reservadamente{
+.private{
     background-color: #FFDEDE;
 }
 
@@ -252,6 +231,25 @@ main p {
     width: 85%;
     height: 30px;
     padding-left: 30px;
+}
+
+.msgR {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    margin: 6px 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+
+}
+.msgR span{
+    color: #adaaaa;
+    padding-right: 4px;
+    padding-left: 4px;
+}
+.msgR strong{
+    padding: 0px 2px;
 }
 
 
