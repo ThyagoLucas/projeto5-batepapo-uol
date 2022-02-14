@@ -9,9 +9,9 @@
 body{
     font-family: Roboto;
     font-style: normal;
-
     display: flex;
-    
+    align-items: center;
+    flex-direction: column;
     background-color: #FFFFFF;
 
     
@@ -27,8 +27,10 @@ body{
     align-items: center;
     width: 100%;
     height: 100%;
-    padding-top: 65px;
-    background-color: #FFFFFF;
+    background-color:#FFFFFF;
+}
+.tela-login img{
+    margin-top: 50px;
 }
 
 .tela-login input{
@@ -80,9 +82,6 @@ body{
 
 .sid-options{
     
-   
-   
-    
 
     color: #000000;
  
@@ -98,38 +97,58 @@ body{
     
     display: flex;
     text-align: center;
+    justify-content: center;
     
     height: 35px;
   
     padding: 15px 22px;
-    
-    
    
-   
+  
+}
+.onlines{
 
+    padding-left: 5px;
+    color: rgb(230, 148, 41);
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
 
-section{
-    
-   
+
+.section{
     display: flex;
     flex-direction: column;
-    height: 150px;
-    overflow: scroll;  
+    justify-content: start;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 250px;
+  
 }
-section button{
+.sid-options button{
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
     padding-left: 10px;
-    background-color: inherit;
+    margin-bottom: 3px;
+
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    
+    background-color:inherit;
+
     outline: none;
     border: none;
 
 }
+
+.section ion-icon{
+    margin-right: 10px;
+}
+
+
 .topo{
     background-color: #FFFFFF;
     width: 100%;
@@ -162,44 +181,49 @@ main{
 main p {
     margin: 6px 0px;
     display: flex;
-    width: 100%;
-    
-    
+    width: 100%;    
 }
-p span{
+
+.messages p {
+    display: flex;
+    
+    
+    align-items: center;
+ 
+    height: 60px;
+
+    border-radius: 3px;
+    padding-left: 8px;
+}
+.messages span{
+    color: #adaaaa;
+    padding-right: 8px;
+
+}
+.messages strong{
     padding: 0px 4px;
 }
-.hora{
-    color: #696969;
-}
-.nome{
-    font-weight: bold;
-}
+
+
+
+
 
 .status{
     background-color: #DCDCDC;
+    display:flex;
+    flex-wrap: wrap;
+    text-align: center;
+    
 }
 
 .reservadamente{
     background-color: #FFDEDE;
 }
 
-.comum{
+.message{
     background-color: #FFFFFF;
 }
 
-
-.msg{
-    width: 100%;
-    height: 60px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 15px;
-    
-
-}
 
 .footer{
     background-color: #FFFFFF;

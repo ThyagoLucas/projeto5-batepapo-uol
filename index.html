@@ -14,7 +14,7 @@
 </head>
 <body>
 
-    <div class="tela-login disabled">
+    <div class="tela-login">
         <img src="img/7.png">
         <input class="user" type="text" placeholder="Digite seu nome">
         <button onclick="loginAuthentication()">Entrar</button>
@@ -28,31 +28,17 @@
         <div class="sid-options">
 
             <p>Escolha um contato para enviar mensagem:</p>
+            <h1 class="onlines">X pessoas onlines</h1>
 
-            <section>
-                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
-                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
-                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
-                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
-                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
-                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
-                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
-                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
-                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
-                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
-                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
-                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
-                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
-                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
-                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
-                <button class="option" value="allPeoples"  onclick="selectUser(this)"> <ion-icon name="people"></ion-icon> Todos</button>
+            <div class="section">
+                <button  onclick="selectUser('todos')"> <ion-icon name="people"></ion-icon>  Todos</button>
+               
  
-            </section>
+            </div>
 
             <p>Escolha a visibilidade:</p>
-            
-                
-         
+            <button class="visibility" onclick="selectType('private_message')"><ion-icon name="lock-closed"></ion-icon></ion-icon>Reservadamente</button>
+            <button onclick="selectType('message')"><ion-icon name="lock-open"></ion-icon>Todos</button>
             
             
         </div>
@@ -66,6 +52,7 @@
     </header>
 
     <main class="messages">
+        
         
                       
     </main>
